@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { HabitPreviewCard } from "@/components/landing/habit-preview-card";
-import { BicepsFlexed, Flame, ShieldCheck, Trophy, Zap, ArrowRight } from "lucide-react";
+import { BicepsFlexed, Flame, ShieldCheck, Trophy, Zap, ArrowRight, Coins, Users, UserPlus, Megaphone } from "lucide-react";
 
 export default function LandingPage() {
   return (
@@ -69,7 +70,7 @@ export default function LandingPage() {
                   </div>
                   <CardTitle>1. Commit & Stake</CardTitle>
                   <CardDescription className="text-base pt-2">
-                    Create a habit and stake a small amount of ETH. This "skin in the game" creates immediate accountability.
+                    Create a habit and stake a small amount of money. This "skin in the game" creates immediate accountability.
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -99,6 +100,200 @@ export default function LandingPage() {
               </Card>
             </div>
           </div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="px-6 py-24 bg-card/30 space-y-32">
+          
+          {/* Feature 1: Habit Stake */}
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-4">
+                <Coins className="w-3 h-3" />
+                <span>Core Mechanic</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Habit Stake</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Lock funds on your goals. Succeed to keep it plus yield, fail and it goes to the treasury. Real skin in the game means real results.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-success" />
+                  <span>Your money is safe as long as you check in</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Trophy className="w-5 h-5 text-accent" />
+                  <span>Earn yield while you build habits</span>
+                </li>
+              </ul>
+            </div>
+            <div className="order-1 md:order-2 relative flex justify-center">
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20" />
+              <HabitPreviewCard 
+                name="Daily Coding" 
+                stake="$5.00" 
+                checkIns={7} 
+                timeLeft="12h 30m" 
+                status="pending"
+                className="relative z-10 w-full max-w-sm shadow-2xl scale-110"
+              />
+            </div>
+          </div>
+
+          {/* Feature 2: Groups */}
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-4">
+                <Users className="w-3 h-3" />
+                <span>Coming Soon</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Squad Goals</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Join invite-only squads to build habits together. The stakes are higher: if a member fails, their slashed stake is split among the survivors.
+              </p>
+              <Button variant="outline" className="gap-2">
+                Join Waitlist <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+            <div className="order-1 relative flex justify-center">
+              <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full opacity-20" />
+              <Card className="w-full max-w-sm relative z-10 overflow-hidden border-2 border-border/50">
+                <CardHeader className="pb-2">
+                  <div className="flex justify-between items-center mb-2">
+                    <Badge variant="outline" className="bg-accent/10 text-accent border-accent/20">Active Squad</Badge>
+                    <span className="text-xs text-muted-foreground">Members 4/5</span>
+                  </div>
+                  <CardTitle>Morning Runners</CardTitle>
+                  <CardDescription>Survivors split the pot</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex -space-x-3 overflow-hidden py-2">
+                      {[
+                        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&q=80&crop=faces&fit=crop",
+                        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=64&h=64&q=80&crop=faces&fit=crop",
+                        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=64&h=64&q=80&crop=faces&fit=crop",
+                        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&q=80&crop=faces&fit=crop"
+                      ].map((src, i) => (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img 
+                          key={i} 
+                          src={src} 
+                          alt={`Member ${i+1}`}
+                          className="inline-block h-10 w-10 rounded-full ring-2 ring-background object-cover bg-muted" 
+                        />
+                      ))}
+                    </div>
+                    <div className="p-3 bg-secondary/50 rounded-lg flex justify-between items-center">
+                      <span className="text-sm font-medium">Current Pot</span>
+                      <span className="text-lg font-bold text-success">$45.00</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Feature 3: Invite System */}
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-success/10 text-success text-xs font-semibold mb-4">
+                <UserPlus className="w-3 h-3" />
+                <span>Pay it Forward</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Sponsor a Friend</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Create invite codes that fund a friend&apos;s first habit. You lock the stake for them - they only get to keep it if they complete the habit.
+              </p>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-success" />
+                  <span>Onboard friends without them needing funds</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-warning" />
+                  <span>If they fail, the stake is slashed (motivating!)</span>
+                </li>
+              </ul>
+            </div>
+            <div className="order-1 md:order-2 relative flex justify-center">
+              <div className="absolute inset-0 bg-success/20 blur-3xl rounded-full opacity-20" />
+              <Card className="w-full max-w-sm relative z-10 border-2 border-dashed border-success/30 bg-success/5">
+                <CardHeader className="text-center pb-2">
+                  <div className="mx-auto w-12 h-12 bg-success/20 rounded-full flex items-center justify-center mb-4">
+                    <UserPlus className="w-6 h-6 text-success" />
+                  </div>
+                  <CardTitle className="text-success">You&apos;ve been invited!</CardTitle>
+                  <CardDescription>Marcelo has funded your first habit</CardDescription>
+                </CardHeader>
+                <CardContent className="text-center space-y-4">
+                  <div className="p-4 bg-background/80 backdrop-blur rounded-xl border border-success/20">
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Invite Code</p>
+                    <p className="text-2xl font-mono font-bold tracking-widest">BUILD-2026</p>
+                  </div>
+                  <div className="flex justify-between text-sm px-2">
+                    <span className="text-muted-foreground">Sponsored Stake:</span>
+                    <span className="font-bold">$5.00</span>
+                  </div>
+                  <Button className="w-full bg-success hover:bg-success/90 text-white">
+                    Accept & Start Building
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* Feature 4: Habit Sponsor */}
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warning/10 text-warning text-xs font-semibold mb-4">
+                <Megaphone className="w-3 h-3" />
+                <span>Earn More</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Brand Rewards</h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                Top brands sponsor habits to encourage healthy lifestyles. Earn bonus crypto rewards on top of your stake yield when you complete sponsored challenges.
+              </p>
+            </div>
+            <div className="order-1 relative flex justify-center">
+              <div className="absolute inset-0 bg-warning/20 blur-3xl rounded-full opacity-20" />
+              <Card className="w-full max-w-sm relative z-10 border-2 border-warning/20">
+                <CardHeader className="pb-2">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <CardTitle>Base Buildathon</CardTitle>
+                      <CardDescription>Sponsored Challenge</CardDescription>
+                    </div>
+                    <div className="bg-blue-600 text-white p-2 rounded-lg">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex gap-4 text-sm">
+                    <div className="flex-1 p-3 bg-secondary/50 rounded-lg text-center">
+                      <p className="text-muted-foreground text-xs mb-1">Bonus</p>
+                      <p className="font-bold text-warning">+10% Yield</p>
+                    </div>
+                    <div className="flex-1 p-3 bg-secondary/50 rounded-lg text-center">
+                      <p className="text-muted-foreground text-xs mb-1">Slots</p>
+                      <p className="font-bold">450/500</p>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-xs">
+                      <span>Progress</span>
+                      <span>28/30 Days</span>
+                    </div>
+                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                      <div className="h-full w-[93%] bg-warning rounded-full" />
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
         </section>
 
         {/* Showcase / Preview */}
@@ -136,7 +331,7 @@ export default function LandingPage() {
               <div className="relative space-y-4">
                 <HabitPreviewCard 
                   name="Morning Meditation" 
-                  stake="0.01 ETH" 
+                  stake="$5.00" 
                   checkIns={12} 
                   timeLeft="14h 22m" 
                   status="pending"
@@ -144,7 +339,7 @@ export default function LandingPage() {
                 />
                 <HabitPreviewCard 
                   name="Daily Workout" 
-                  stake="0.05 ETH" 
+                  stake="$15.00" 
                   checkIns={24} 
                   timeLeft="0s" 
                   status="done"
@@ -152,7 +347,7 @@ export default function LandingPage() {
                 />
                 <HabitPreviewCard 
                   name="Read 20 Pages" 
-                  stake="0.005 ETH" 
+                  stake="$2.50" 
                   checkIns={5} 
                   timeLeft="Ready" 
                   status="ready"
