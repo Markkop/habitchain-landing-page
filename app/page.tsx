@@ -243,7 +243,7 @@ export default function LandingPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Zap className="w-5 h-5 text-warning" />
-                  <span>If they fail, the stake is slashed (motivating!)</span>
+                  <span>If they fail, the stake is slashed</span>
                 </li>
               </ul>
             </div>
