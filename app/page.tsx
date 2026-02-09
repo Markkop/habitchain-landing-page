@@ -42,7 +42,6 @@ export default function LandingPage() {
         <nav className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
           <Link href="#how-it-works" className="hover:text-foreground transition-colors">How it Works</Link>
           <Link href="#features" className="hover:text-foreground transition-colors">Features</Link>
-          <Link href="#showcase" className="hover:text-foreground transition-colors">Preview</Link>
         </nav>
         {isShiftHeld ? (
           <Button asChild size="sm" className="rounded-full px-5">
@@ -88,7 +87,7 @@ export default function LandingPage() {
         </section>
 
         {/* How it Works */}
-        <section id="how-it-works" className="px-6 py-24 bg-secondary/30 border-y border-border/40">
+        <section id="how-it-works" className="scroll-mt-24 px-6 py-24 bg-secondary/30 border-y border-border/40">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Discipline in Three Steps</h2>

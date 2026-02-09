@@ -36,11 +36,31 @@ export function InteractiveHabitDemo({
   const [state, setState] = useState<DemoState>("countdown");
   const [secondsLeft, setSecondsLeft] = useState(initialCountdownSeconds);
   const [checkInCount, setCheckInCount] = useState(initialCheckIns);
+  const [isInUserView, setIsInUserView] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const node = cardRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInUserView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
 
   // Countdown timer
   useEffect(() => {
     if (state !== "countdown") return;
+    if (!isInUserView) return;
     if (secondsLeft <= 0) {
       return;
     }
@@ -54,7 +74,7 @@ export function InteractiveHabitDemo({
       });
     }, 1000);
     return () => clearTimeout(timer);
-  }, [state, secondsLeft]);
+  }, [state, secondsLeft, isInUserView]);
 
   const fireConfetti = useCallback(() => {
     if (!cardRef.current) return;
@@ -127,6 +147,7 @@ export function InteractiveHabitDemo({
   };
 
   const isUrgent = state === "countdown" && secondsLeft <= 3 && secondsLeft > 0;
+  const rewardStakeLabel = stake.replace(/\.00\b/, "");
 
   return (
     <div
@@ -195,6 +216,8 @@ export function InteractiveHabitDemo({
                 <span className="line-through">{stake}</span>{" "}
                 <span className="text-destructive font-medium">lost</span>
               </>
+            ) : state === "checked" ? (
+              `You got your ${rewardStakeLabel} back + extra rewards`
             ) : (
               `${stake} staked`
             )}

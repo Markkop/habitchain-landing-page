@@ -112,6 +112,10 @@
     @apply bg-background text-foreground;
     min-height: 100vh;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 .features-tabs,
@@ -135,6 +139,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .features-carousel-track {
     scroll-behavior: auto;
   }

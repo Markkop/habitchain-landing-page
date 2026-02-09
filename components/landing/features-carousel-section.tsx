@@ -264,7 +264,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
   };
 
   return (
-    <section id="features" className="px-6 py-12 bg-card/30">
+    <section id="features" className="scroll-mt-24 px-6 py-12 bg-card/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Features That Keep You Consistent</h2>
