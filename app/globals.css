@@ -113,3 +113,29 @@
     min-height: 100vh;
   }
 }
+
+.features-tabs,
+.features-carousel-track {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.features-tabs::-webkit-scrollbar,
+.features-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.features-tabs {
+  overscroll-behavior-x: contain;
+}
+
+.features-carousel-track {
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pinch-zoom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .features-carousel-track {
+    scroll-behavior: auto;
+  }
+}
