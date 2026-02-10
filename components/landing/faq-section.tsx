@@ -23,66 +23,6 @@ const FAQ_TABS: Array<{ id: FaqTab; label: string }> = [
 
 const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
   {
-    id: "launch",
-    question: "When is HabitChain launching?",
-    answer: (
-      <>
-        HabitChain is about to launch. Anyone can{" "}
-        <button
-          type="button"
-          onClick={onJoinWaitlist}
-          className="text-primary underline underline-offset-2 hover:text-primary/80"
-        >
-          join the waitlist
-        </button>{" "}
-        now, and the production app will be available at{" "}
-        <a
-          href="https://app.habitchain.xyz"
-          className="text-primary underline underline-offset-2 hover:text-primary/80"
-        >
-          https://app.habitchain.xyz
-        </a>
-        .
-      </>
-    ),
-  },
-  {
-    id: "use-flow",
-    question: "How do I use HabitChain?",
-    answer:
-      "The flow is simple: deposit USDC, create a habit, check in during each cycle, and settle your cycle by continuing your streak or cashing out your success.",
-  },
-  {
-    id: "verification",
-    question: "How does verification/checking work?",
-    answer:
-      "HabitChain is built around self-commitment. You self-attest your check-ins, and those actions are recorded on-chain so your commitment history is transparent and consistent.",
-  },
-  {
-    id: "missed-checkin",
-    question: "What happens if I miss a check-in?",
-    answer:
-      "Missing a check-in means that cycle counts as failed. You can choose to restart and keep going, or archive the habit. If you leave failed habits unresolved, withdrawals stay paused until you resolve them.",
-  },
-  {
-    id: "active-money",
-    question: "What happens with my money while a habit is active?",
-    answer:
-      "Your committed money stays locked while the habit is active. If you complete your cycle, you get sponsor rewards (if any available), your money stays yielding and can be withdrawn. If you fail, it goes to the treasury, supporting HabitChain.",
-  },
-  {
-    id: "money-goes",
-    question: "Where does the money go?",
-    answer:
-      "Funds move between your balance, active commitments, rewards, and treasury based on your outcomes. Treasury funds are used to sponsor campaigns, build more product features, and invest in marketing and growth.",
-  },
-  {
-    id: "sponsor-project",
-    question: "How can I sponsor this project?",
-    answer:
-      "Currently, you can support us by sponsoring a habit using our smart contract interactions + ui updates.",
-  },
-  {
     id: "users-what-is",
     question: "What is HabitChain?",
     answer:
@@ -114,8 +54,14 @@ const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     ),
   },
   {
+    id: "use-flow",
+    question: "How do I use HabitChain?",
+    answer:
+      "The flow is simple: deposit USDC, create a habit, check in during each cycle, and settle your cycle by continuing your streak or cashing out your success.",
+  },
+  {
     id: "users-different",
-    question: "What makes HabitChain different from tradiontal apps?",
+    question: "What makes HabitChain different from traditional apps?",
     answer: (
       <ul className="m-0 list-disc pl-5 space-y-1">
         <li>Outcome-first: less talk, more consistent follow-through.</li>
@@ -125,11 +71,53 @@ const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     ),
   },
   {
-    id: "users-available",
-    question: "Is it available now?",
+    id: "active-money",
+    question: "What happens with my money while a habit is active?",
+    answer:
+      "Your committed money stays locked while the habit is active. If you complete your cycle, you get sponsor rewards (if any available), your money stays yielding and can be withdrawn. If you fail, it goes to the treasury, supporting HabitChain.",
+  },
+  {
+    id: "missed-checkin",
+    question: "What happens if I miss a check-in?",
+    answer:
+      "Missing a check-in means that cycle counts as failed. You can choose to restart and keep going, or archive the habit. If you leave failed habits unresolved, withdrawals stay paused until you resolve them.",
+  },
+  {
+    id: "verification",
+    question: "How does verification/checking work?",
+    answer:
+      "HabitChain is built around self-commitment. You self-attest your check-ins, and those actions are recorded on-chain so your commitment history is transparent and consistent.",
+  },
+  {
+    id: "money-goes",
+    question: "Where does the money go?",
+    answer:
+      "Funds move between your balance, active commitments, rewards, and treasury based on your outcomes. Treasury funds are used to sponsor campaigns, build more product features, and invest in marketing and growth.",
+  },
+  {
+    id: "users-setup",
+    question: "Do I need crypto, a wallet, or special setup?",
+    answer:
+      "HabitChain is designed to be simple, with a Farcaster-native path and wallet-supported path. You do not need advanced crypto knowledge to get started.",
+  },
+  {
+    id: "users-integrations",
+    question: "What integrations do you support?",
+    answer:
+      "Current core integrations include Base, Farcaster, Habit Sponsor campaigns, and optional paymaster-enabled transaction flows.",
+  },
+  {
+    id: "users-availability",
+    question: "Where is HabitChain available?",
+    answer:
+      "HabitChain is available as a web mini app experience on Base, with Farcaster-native distribution.",
+  },
+  {
+    id: "launch",
+    question: "When is HabitChain launching?",
     answer: (
       <>
-        HabitChain is about to launch. You can{" "}
+        HabitChain is about to launch. Anyone can{" "}
         <button
           type="button"
           onClick={onJoinWaitlist}
@@ -137,7 +125,7 @@ const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
         >
           join the waitlist
         </button>{" "}
-        now. The production app will be available at{" "}
+        now, and the production app will be available at{" "}
         <a
           href="https://app.habitchain.xyz"
           className="text-primary underline underline-offset-2 hover:text-primary/80"
@@ -152,31 +140,7 @@ const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     id: "users-pricing",
     question: "How much does it cost?",
     answer:
-      "Joining the waitlist is free. Final pricing and plan details will be shared at launch.",
-  },
-  {
-    id: "users-setup",
-    question: "Do I need crypto, a wallet, or special setup?",
-    answer:
-      "HabitChain is designed to be simple, with a Farcaster-native path and wallet-supported path. You do not need advanced crypto knowledge to get started.",
-  },
-  {
-    id: "users-security",
-    question: "What about security and privacy?",
-    answer:
-      "On-chain actions are transparent by design. We keep product data handling minimal, follow secure development practices, and do not sell user data.",
-  },
-  {
-    id: "users-availability",
-    question: "Where is HabitChain available?",
-    answer:
-      "HabitChain is available as a web mini app experience on Base, with Farcaster-native distribution.",
-  },
-  {
-    id: "users-integrations",
-    question: "What integrations do you support?",
-    answer:
-      "Current core integrations include Base, Farcaster, Habit Sponsor campaigns, and optional paymaster-enabled transaction flows.",
+      "The core mechanic is stake in Habits, so you need to put money you're willing to lose. It can vary from just a few cents to dozens of dollars. It's up to you.",
   },
   {
     id: "users-team",
@@ -185,10 +149,22 @@ const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
       "Today the focus is personal accountability. Team and group-oriented experiences are being developed progressively.",
   },
   {
+    id: "users-security",
+    question: "What about security and privacy?",
+    answer:
+      "On-chain actions are transparent by design. We keep product data handling minimal, follow secure development practices, and do not sell user data.",
+  },
+  {
     id: "users-support",
     question: "How do I get support?",
     answer:
       "Join the waitlist and reply through our onboarding communications, or reach out through our official social channels listed in the footer.",
+  },
+  {
+    id: "sponsor-project",
+    question: "How can I sponsor this project?",
+    answer:
+      "Currently, you can support us by sponsoring a habit using our smart contract interactions + ui updates. Talk to us!",
   },
 ];
 
@@ -221,13 +197,39 @@ const investorFaqItems: FaqItem[] = [
     id: "inv-revenue",
     question: "How do you make money (or plan to)?",
     answer:
-      "The model centers on value-aligned monetization through platform usage, sponsor campaign economics, and premium growth paths tied to engagement and outcomes.",
+      "The model centers on value-aligned monetization through platform usage and sponsor campaign economics",
   },
   {
     id: "inv-market",
     question: "What’s the market size?",
-    answer:
-      "Initial focus is accountability-first users in web3 and digital wellness. Expansion paths include broader consumer habit products, team accountability, and sponsored behavior programs.",
+    answer: (
+      <ul className="m-0 list-disc pl-5 space-y-1">
+        <li>
+          Global wellness market: $6.8T today, projected to reach $9.8T by 2029 (
+          <a
+            href="https://globalwellnessinstitute.org/global-wellness-institute-blog/2025/11/25/wellness-market-hits-record-6-8-trillion-will-reach-nearly-10-trillion-by-2029/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-primary/80"
+          >
+            Global Wellness Institute
+          </a>
+          ).
+        </li>
+        <li>
+          Habit tracker app segment: $1.7B in 2024, 14.2% CAGR to $5.5B by 2033 (
+          <a
+            href="https://straitsresearch.com/report/habit-tracking-apps-market"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline underline-offset-2 hover:text-primary/80"
+          >
+            Straits Research
+          </a>
+          ).
+        </li>
+      </ul>
+    ),
   },
   {
     id: "inv-competition",
@@ -293,7 +295,7 @@ const investorFaqItems: FaqItem[] = [
     id: "inv-team",
     question: "Why is this team uniquely qualified?",
     answer:
-      "The team combines product shipping experience with direct domain focus on commitment-based habit systems and on-chain consumer UX.",
+      "Marcelo, Gustavo, Henrique - the founding team bring over 20 years of combined software development experience. We placed second at the StarkNet Hackathon and first at the Polkadot Latin Hackathon. Our commitment to HabitChain is fully staked in this project.",
   },
   {
     id: "inv-raise",

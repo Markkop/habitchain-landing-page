@@ -231,9 +231,20 @@ export default function LandingPage() {
         </div>
         <p>&copy; {new Date().getFullYear()} HabitChain. Built on Base.</p>
         <div className="flex justify-center gap-6 mt-6">
-          <a href="#" className="hover:text-foreground">Twitter</a>
-          <a href="#" className="hover:text-foreground">Farcaster</a>
-          <a href="#" className="hover:text-foreground">GitHub</a>
+          <a href="https://x.com/habitchainxyz" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">X</a>
+          <button
+            type="button"
+            onClick={() => {
+              const p1 = "t.me";
+              const p2 = "/+";
+              const p3 = "BND2EKdmofU4YTVh";
+              window.open("https://" + p1 + p2 + p3, "_blank");
+            }}
+            className="text-muted-foreground hover:text-foreground bg-transparent border-none cursor-pointer p-0 text-sm font-inherit"
+          >
+            Telegram
+          </button>
+          <a href="mailto:contact@habitchain.xyz" className="hover:text-foreground">Email</a>
         </div>
       </footer>
 
