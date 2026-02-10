@@ -222,6 +222,29 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
     };
   }, [syncActiveFromScroll]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const isMobileViewport = window.matchMedia("(max-width: 767px)").matches;
+    if (!isMobileViewport) {
+      return;
+    }
+
+    const activeTab = tabRefs.current[activeIndex];
+    if (!activeTab) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    activeTab.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, [activeIndex]);
+
   const scrollToFeature = (index: number, behavior: ScrollBehavior = "smooth") => {
     const track = trackRef.current;
     const slide = slideRefs.current[index];
