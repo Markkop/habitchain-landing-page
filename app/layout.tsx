@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "HabitChain | Stake on Yourself",
-  description: "Build lasting habits with real financial stakes on Base. Commit, verify on-chain, and earn rewards for consistency.",
+  description: "Build lasting habits with real financial stakes on Base. Commit, self-attest check-ins recorded on-chain, and earn rewards for consistency.",
   keywords: ["habits", "web3", "blockchain", "staking", "base", "farcaster", "discipline"],
   openGraph: {
     title: "HabitChain | Stake on Yourself",

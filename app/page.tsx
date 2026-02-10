@@ -7,6 +7,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import { HabitPreviewCard } from "@/components/landing/habit-preview-card";
 import { InteractiveHabitDemo } from "@/components/landing/interactive-habit-demo";
 import { FeaturesCarouselSection } from "@/components/landing/features-carousel-section";
+import { FaqSection } from "@/components/landing/faq-section";
 import { BicepsFlexed, Flame, ShieldCheck, Trophy, Zap, ArrowRight } from "lucide-react";
 
 export default function LandingPage() {
@@ -42,6 +43,7 @@ export default function LandingPage() {
         <nav className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
           <Link href="#how-it-works" className="hover:text-foreground transition-colors">How it Works</Link>
           <Link href="#features" className="hover:text-foreground transition-colors">Features</Link>
+          <Link href="#faq" className="hover:text-foreground transition-colors">FAQ</Link>
         </nav>
         {isShiftHeld ? (
           <Button asChild size="sm" className="rounded-full px-5">
@@ -66,7 +68,7 @@ export default function LandingPage() {
           </h1>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed">
             Build lasting habits with real financial stakes. Commit to your goals, 
-            verify your progress on-chain, and earn rewards for your consistency.
+            self-attest your check-ins recorded on-chain, and earn rewards for your consistency.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isShiftHeld ? (
@@ -148,7 +150,7 @@ export default function LandingPage() {
               </h2>
               <ul className="space-y-4">
                 {[
-                  "On-chain verification of every check-in",
+                  "Self-attested check-ins recorded on-chain",
                   "Loss aversion mechanics to boost consistency",
                   "Sponsored pools with bonus yield",
                   "Farcaster native experience"
@@ -217,6 +219,8 @@ export default function LandingPage() {
             )}
           </div>
         </section>
+
+        <FaqSection onJoinWaitlist={() => setShowWaitlistForm(true)} />
       </main>
 
       {/* Footer */}

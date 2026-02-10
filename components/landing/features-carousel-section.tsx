@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Coins,
+  Flame,
   Megaphone,
   ShieldCheck,
   Trophy,
@@ -21,7 +22,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { cn } from "@/lib/utils";
 
 type FeatureAccent = "primary" | "accent" | "success" | "warning";
-type FeatureId = "stake" | "squad-goals" | "sponsor-friend" | "brand-rewards";
+type FeatureId = "stake" | "squad-goals" | "sponsor-friend" | "streak-multiplier" | "brand-rewards";
 
 interface FeatureItem {
   id: FeatureId;
@@ -90,6 +91,28 @@ const FEATURE_ITEMS: FeatureItem[] = [
         icon: Zap,
         text: "If they fail, the sponsored stake is slashed",
         colorClass: "text-warning",
+      },
+    ],
+  },
+  {
+    id: "streak-multiplier",
+    name: "Streak Multiplier",
+    title: "Streak Multiplier",
+    description:
+      "Turn consistency into compounding upside. Every successful streak level multiplies yielding rewards, giving disciplined builders a bigger payout over time.",
+    badgeLabel: "Consistency Boost",
+    accent: "accent",
+    icon: Flame,
+    bullets: [
+      {
+        icon: Zap,
+        text: "Each completed cycle pushes your multiplier higher",
+        colorClass: "text-accent",
+      },
+      {
+        icon: Trophy,
+        text: "Climb from 1x to 10x to maximize your yield upside",
+        colorClass: "text-success",
       },
     ],
   },
@@ -464,6 +487,43 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
             <span className="font-bold">$5.00</span>
           </div>
           <Button className="w-full bg-success text-white hover:bg-success/90">Accept &amp; Start Building</Button>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (featureId === "streak-multiplier") {
+    return (
+      <Card className="relative z-10 w-full max-w-sm border-2 border-accent/20">
+        <CardHeader className="pb-2">
+          <div className="flex items-start justify-between">
+            <div>
+              <CardTitle>Current Multiplier</CardTitle>
+              <CardDescription>Yielding rewards boost</CardDescription>
+            </div>
+            <div className="rounded-lg bg-accent/20 p-2 text-accent">
+              <Flame className="h-5 w-5" />
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 text-center">
+            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">Live Streak</p>
+            <p className="text-3xl font-bold text-accent">6x</p>
+            <p className="text-xs text-muted-foreground">Multiplier applied to yielding rewards</p>
+          </div>
+          <div className="space-y-2">
+            <div className="flex justify-between text-xs">
+              <span>Progress to Max</span>
+              <span>6/10</span>
+            </div>
+            <div className="h-2 overflow-hidden rounded-full bg-secondary">
+              <div className="h-full w-[60%] rounded-full bg-accent" />
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Keep checking in to climb toward the full 10x multiplier.
+          </p>
         </CardContent>
       </Card>
     );
