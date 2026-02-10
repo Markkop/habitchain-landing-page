@@ -4,7 +4,7 @@ import { useState, type ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-type FaqTab = "common" | "users" | "investors";
+type FaqTab = "general" | "investors";
 
 type FaqItem = {
   id: string;
@@ -17,12 +17,11 @@ type FaqSectionProps = {
 };
 
 const FAQ_TABS: Array<{ id: FaqTab; label: string }> = [
-  { id: "common", label: "Common" },
-  { id: "users", label: "Users" },
+  { id: "general", label: "General" },
   { id: "investors", label: "Investors" },
 ];
 
-const commonFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
+const generalFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
   {
     id: "launch",
     question: "When is HabitChain launching?",
@@ -63,13 +62,13 @@ const commonFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     id: "missed-checkin",
     question: "What happens if I miss a check-in?",
     answer:
-      "Missing a check-in means that cycle counts as failed. You can choose to restart and keep going, or close the habit for now. If you leave failed habits unresolved, withdrawals stay paused until you resolve them.",
+      "Missing a check-in means that cycle counts as failed. You can choose to restart and keep going, or archive the habit. If you leave failed habits unresolved, withdrawals stay paused until you resolve them.",
   },
   {
     id: "active-money",
     question: "What happens with my money while a habit is active?",
     answer:
-      "Your committed money stays locked while the habit is active. If you complete your cycle, you can get your value back plus rewards. If you repeatedly fail, part of that value can be redirected to treasury.",
+      "Your committed money stays locked while the habit is active. If you complete your cycle, you get sponsor rewards (if any available), your money stays yielding and can be withdrawn. If you fail, it goes to the treasury, supporting HabitChain.",
   },
   {
     id: "money-goes",
@@ -81,11 +80,8 @@ const commonFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     id: "sponsor-project",
     question: "How can I sponsor this project?",
     answer:
-      "Use the Habit Sponsor feature to fund on-chain reward campaigns for successful users. HabitChain also supports a Base-integrated paymaster strategy for selected actions, helping reduce user gas friction.",
+      "Currently, you can support us by sponsoring a habit using our smart contract interactions + ui updates.",
   },
-];
-
-const userFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
   {
     id: "users-what-is",
     question: "What is HabitChain?",
@@ -96,7 +92,7 @@ const userFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
     id: "users-who-for",
     question: "Who is this for?",
     answer:
-      "It is built for people who want stronger accountability than standard habit trackers, especially builders, students, and professionals who value measurable commitment.",
+      "It is built for people who want stronger accountability than standard habit trackers, especially builders, founders, and creators who value measurable commitment.",
   },
   {
     id: "users-problem",
@@ -111,13 +107,15 @@ const userFaqItems = (onJoinWaitlist: () => void): FaqItem[] => [
       <div className="space-y-2">
         <p className="m-0">1. Commit to a habit and stake USDC.</p>
         <p className="m-0">2. Check in during each cycle.</p>
-        <p className="m-0">3. Succeed to unlock value and rewards; miss cycles and value can be slashed.</p>
+        <p className="m-0">
+          3. Succeed to unlock value and rewards; miss cycles and your stake will be slashed, going to the treasury and funding HabitChain.
+        </p>
       </div>
     ),
   },
   {
     id: "users-different",
-    question: "What makes HabitChain different?",
+    question: "What makes HabitChain different from tradiontal apps?",
     answer: (
       <ul className="m-0 list-disc pl-5 space-y-1">
         <li>Outcome-first: less talk, more consistent follow-through.</li>
@@ -234,8 +232,38 @@ const investorFaqItems: FaqItem[] = [
   {
     id: "inv-competition",
     question: "Who are your competitors, and why do you win?",
-    answer:
-      "Alternatives include traditional habit trackers, commitment apps, and DIY workflows. HabitChain differentiates through on-chain transparency, self-commitment economics, and ecosystem-native distribution.",
+    answer: (
+      <ul className="m-0 list-disc pl-5 space-y-1">
+        <li>
+          Habitica (Web2): gamified productivity with symbolic XP/coins, while HabitChain uses real value at risk and measurable
+          on-chain outcomes.
+        </li>
+        <li>
+          Streaks (Web2): premium streak tracking focused on personal checklists, while HabitChain adds stake-backed accountability
+          and consequence.
+        </li>
+        <li>
+          Productive (Web2): routine planning and reminders, while HabitChain ties completion to financial commitment and
+          transparent reward flow.
+        </li>
+        <li>
+          Habitify (Web2): cross-platform habit analytics, while HabitChain adds programmable incentives (sponsors, treasury, yield
+          hooks) beyond tracking.
+        </li>
+        <li>
+          Way of Life (Web2): journal-style behavior logging, while HabitChain turns consistency into an enforceable commitment
+          loop.
+        </li>
+        <li>
+          Strava (Web2): fitness-specific social tracking, while HabitChain supports any self-attested habit and group
+          redistribution mechanics.
+        </li>
+        <li>
+          Combined summary: Web2 trackers optimize reminders and visualization; HabitChain closes the motivation gap with real
+          stakes, on-chain transparency, and programmable incentives.
+        </li>
+      </ul>
+    ),
   },
   {
     id: "inv-why-now",
@@ -282,11 +310,10 @@ const investorFaqItems: FaqItem[] = [
 ];
 
 export function FaqSection({ onJoinWaitlist }: FaqSectionProps) {
-  const [activeTab, setActiveTab] = useState<FaqTab>("common");
+  const [activeTab, setActiveTab] = useState<FaqTab>("general");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqByTab: Record<FaqTab, FaqItem[]> = {
-    common: commonFaqItems(onJoinWaitlist),
-    users: userFaqItems(onJoinWaitlist),
+    general: generalFaqItems(onJoinWaitlist),
     investors: investorFaqItems,
   };
   const faqItems = faqByTab[activeTab];
@@ -302,7 +329,7 @@ export function FaqSection({ onJoinWaitlist }: FaqSectionProps) {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Browse quick answers for common, user, and investor questions.
+            Browse quick answers for general and investor questions.
           </p>
         </div>
 
