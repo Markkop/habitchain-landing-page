@@ -37,31 +37,31 @@ const getGeneralFaqItems = (language: Language, onJoinWaitlist: () => void): Faq
     return [
       {
         id: "users-what-is",
-        question: "O que e o HabitChain?",
+        question: "O que é o HabitChain?",
         answer:
-          "HabitChain e um app de auto-compromisso onde voce aposta nos seus proprios habitos, mantem responsabilidade com check-ins e desbloqueia recompensas ao ser consistente.",
+          "HabitChain é um app de auto-compromisso onde você aposta nos seus próprios hábitos, mantém responsabilidade com check-ins e desbloqueia recompensas ao ser consistente.",
       },
       {
         id: "users-who-for",
-        question: "Para quem e isso?",
+        question: "Para quem é isso?",
         answer:
-          "Foi feito para quem quer mais responsabilidade do que rastreadores de habito comuns, especialmente builders, fundadores e criadores que valorizam compromisso mensuravel.",
+          "Foi feito para quem quer mais responsabilidade do que rastreadores de hábito comuns, especialmente builders, fundadores e criadores que valorizam compromisso mensurável.",
       },
       {
         id: "users-problem",
         question: "Que problema ele resolve?",
         answer:
-          "A maioria das pessoas perde consistencia porque a motivacao diminui e nao ha consequencias reais. O HabitChain adiciona compromisso real e rastreamento transparente para facilitar a execucao.",
+          "A maioria das pessoas perde consistência porque a motivação diminui e não há consequências reais. O HabitChain adiciona compromisso real e rastreamento transparente para facilitar a execução.",
       },
       {
         id: "users-how-work",
         question: "Como funciona (de forma simples)?",
         answer: (
           <div className="space-y-2">
-            <p className="m-0">1. Comprometa-se com um habito e aposte USDC.</p>
-            <p className="m-0">2. Faca check-in durante cada ciclo.</p>
+            <p className="m-0">1. Comprometa-se com um hábito e aposte USDC.</p>
+            <p className="m-0">2. Faça check-in durante cada ciclo.</p>
             <p className="m-0">
-              3. Se cumprir, desbloqueia valor e recompensas; se perder ciclos, sua aposta e cortada e vai para o tesouro,
+              3. Se cumprir, desbloqueia valor e recompensas; se perder ciclos, sua aposta é cortada e vai para o tesouro,
               financiando o HabitChain.
             </p>
           </div>
@@ -71,67 +71,67 @@ const getGeneralFaqItems = (language: Language, onJoinWaitlist: () => void): Faq
         id: "use-flow",
         question: "Como eu uso o HabitChain?",
         answer:
-          "O fluxo e simples: deposite USDC, crie um habito, faca check-in em cada ciclo e finalize o ciclo continuando sua sequencia ou realizando saque do sucesso.",
+          "O fluxo é simples: deposite USDC, crie um hábito, faça check-in em cada ciclo e finalize o ciclo continuando sua sequência ou realizando saque do sucesso.",
       },
       {
         id: "users-different",
         question: "O que torna o HabitChain diferente dos apps tradicionais?",
         answer: (
           <ul className="m-0 list-disc pl-5 space-y-1">
-            <li>Foco em resultado: menos conversa, mais execucao consistente.</li>
-            <li>Modelo de auto-compromisso: sua propria aposta reforca seu comportamento.</li>
-            <li>Loop rapido: comprometer, check-in, finalizar e repetir.</li>
+            <li>Foco em resultado: menos conversa, mais execução consistente.</li>
+            <li>Modelo de auto-compromisso: sua própria aposta reforça seu comportamento.</li>
+            <li>Loop rápido: comprometer, check-in, finalizar e repetir.</li>
           </ul>
         ),
       },
       {
         id: "active-money",
-        question: "O que acontece com meu dinheiro enquanto o habito esta ativo?",
+        question: "O que acontece com meu dinheiro enquanto o hábito está ativo?",
         answer:
-          "Seu dinheiro comprometido fica travado enquanto o habito esta ativo. Se voce concluir o ciclo, recebe recompensas de patrocinio (se houver), seu dinheiro segue rendendo e pode ser sacado. Se falhar, vai para o tesouro, apoiando o HabitChain.",
+          "Seu dinheiro comprometido fica travado enquanto o hábito está ativo. Se você concluir o ciclo, recebe recompensas de patrocínio (se houver), seu dinheiro segue rendendo e pode ser sacado. Se falhar, vai para o tesouro, apoiando o HabitChain.",
       },
       {
         id: "missed-checkin",
         question: "O que acontece se eu perder um check-in?",
         answer:
-          "Perder um check-in significa que aquele ciclo falhou. Voce pode reiniciar e continuar, ou arquivar o habito. Se deixar habitos falhos sem resolver, os saques ficam pausados ate resolver.",
+          "Perder um check-in significa que aquele ciclo falhou. Você pode reiniciar e continuar, ou arquivar o hábito. Se deixar hábitos falhos sem resolver, os saques ficam pausados até resolver.",
       },
       {
         id: "verification",
-        question: "Como funciona a verificacao/checking?",
+        question: "Como funciona a verificação/checking?",
         answer:
-          "HabitChain e baseado em auto-compromisso. Voce autoatesta seus check-ins, e essas acoes sao registradas on-chain para manter o historico transparente e consistente.",
+          "HabitChain é baseado em auto-compromisso. Você autoatesta seus check-ins, e essas ações são registradas on-chain para manter o histórico transparente e consistente.",
       },
       {
         id: "money-goes",
         question: "Para onde vai o dinheiro?",
         answer:
-          "Os fundos circulam entre seu saldo, compromissos ativos, recompensas e tesouro conforme seus resultados. O tesouro e usado para campanhas patrocinadas, novas funcionalidades e crescimento.",
+          "Os fundos circulam entre seu saldo, compromissos ativos, recompensas e tesouro conforme seus resultados. O tesouro é usado para campanhas patrocinadas, novas funcionalidades e crescimento.",
       },
       {
         id: "users-setup",
-        question: "Preciso de cripto, carteira ou configuracao especial?",
+        question: "Preciso de cripto, carteira ou configuração especial?",
         answer:
-          "O HabitChain foi desenhado para ser simples, com caminho nativo no Farcaster e caminho com carteira. Voce nao precisa de conhecimento avancado de cripto para comecar.",
+          "O HabitChain foi desenhado para ser simples, com caminho nativo no Farcaster e caminho com carteira. Você não precisa de conhecimento avançado de cripto para começar.",
       },
       {
         id: "users-integrations",
-        question: "Quais integracoes voces suportam?",
+        question: "Quais integrações vocês suportam?",
         answer:
-          "As integracoes centrais atuais incluem Base, Farcaster, campanhas Habit Sponsor e fluxos opcionais com paymaster.",
+          "As integrações centrais atuais incluem Base, Farcaster, campanhas Habit Sponsor e fluxos opcionais com paymaster.",
       },
       {
         id: "users-availability",
-        question: "Onde o HabitChain esta disponivel?",
+        question: "Onde o HabitChain está disponível?",
         answer:
-          "O HabitChain esta disponivel como mini app web na Base, com distribuicao nativa no Farcaster.",
+          "O HabitChain está disponível como mini app web na Base, com distribuição nativa no Farcaster.",
       },
       {
         id: "launch",
-        question: "Quando o HabitChain sera lancado?",
+        question: "Quando o HabitChain será lançado?",
         answer: (
           <>
-            O HabitChain esta prestes a lancar. Qualquer pessoa pode{" "}
+            O HabitChain está prestes a lançar. Qualquer pessoa pode{" "}
             <button
               type="button"
               onClick={onJoinWaitlist}
@@ -139,7 +139,7 @@ const getGeneralFaqItems = (language: Language, onJoinWaitlist: () => void): Faq
             >
               entrar na lista
             </button>{" "}
-            agora, e o app de producao estara disponivel em{" "}
+            agora, e o app de produção estará disponível em{" "}
             <a
               href="https://app.habitchain.xyz"
               className="text-primary underline underline-offset-2 hover:text-primary/80"
@@ -154,31 +154,31 @@ const getGeneralFaqItems = (language: Language, onJoinWaitlist: () => void): Faq
         id: "users-pricing",
         question: "Quanto custa?",
         answer:
-          "A mecanica central e apostar em Habitos, entao voce precisa colocar um valor que aceita perder. Pode variar de centavos a dezenas de dolares. E voce que decide.",
+          "A mecânica central é apostar em Hábitos, então você precisa colocar um valor que aceita perder. Pode variar de centavos a dezenas de dólares. É você que decide.",
       },
       {
         id: "users-team",
         question: "Posso usar o HabitChain para meu time/empresa?",
         answer:
-          "Hoje o foco e responsabilidade pessoal. Experiencias para times e grupos estao sendo desenvolvidas progressivamente.",
+          "Hoje o foco é responsabilidade pessoal. Experiências para times e grupos estão sendo desenvolvidas progressivamente.",
       },
       {
         id: "users-security",
-        question: "E seguranca e privacidade?",
+        question: "E segurança e privacidade?",
         answer:
-          "Acoes on-chain sao transparentes por design. Mantemos o tratamento de dados no minimo, seguimos praticas de desenvolvimento seguro e nao vendemos dados de usuarios.",
+          "Ações on-chain são transparentes por design. Mantemos o tratamento de dados no mínimo, seguimos práticas de desenvolvimento seguro e não vendemos dados de usuários.",
       },
       {
         id: "users-support",
         question: "Como consigo suporte?",
         answer:
-          "Entre na lista e responda pelas comunicacoes de onboarding, ou fale conosco pelos canais oficiais listados no rodape.",
+          "Entre na lista e responda pelas comunicações de onboarding, ou fale conosco pelos canais oficiais listados no rodapé.",
       },
       {
         id: "sponsor-project",
         question: "Como posso patrocinar este projeto?",
         answer:
-          "Atualmente, voce pode nos apoiar patrocinando um habito usando interacoes no smart contract + atualizacoes de UI. Fale com a gente!",
+          "Atualmente, você pode nos apoiar patrocinando um hábito usando interações no smart contract + atualizações de UI. Fale com a gente!",
       },
     ];
   }
@@ -338,39 +338,39 @@ const getInvestorFaqItems = (language: Language): FaqItem[] => {
         id: "inv-one-liner",
         question: "O que o HabitChain faz em uma frase?",
         answer:
-          "HabitChain transforma disciplina pessoal em um loop de compromisso on-chain, onde usuarios apostam em habitos e ganham quando sao consistentes.",
+          "HabitChain transforma disciplina pessoal em um loop de compromisso on-chain, onde usuários apostam em hábitos e ganham quando são consistentes.",
       },
       {
         id: "inv-wedge",
-        question: "Qual e a wedge / cliente inicial?",
+        question: "Qual é a wedge / cliente inicial?",
         answer:
-          "A wedge sao usuarios cripto nativos focados em responsabilidade, que ja valorizam mecanismos transparentes de compromisso, com expansao para audiencias mais amplas de autodesenvolvimento ao longo do tempo.",
+          "A wedge são usuários cripto nativos focados em responsabilidade, que já valorizam mecanismos transparentes de compromisso, com expansão para audiências mais amplas de autodesenvolvimento ao longo do tempo.",
       },
       {
         id: "inv-insight",
-        question: "Qual e o insight unico?",
+        question: "Qual é o insight único?",
         answer:
-          "A maioria dos produtos de habito depende apenas de motivacao; o HabitChain trata compromisso como infraestrutura de comportamento, onde autoatesto registrado e consequencia economica impulsionam consistencia.",
+          "A maioria dos produtos de hábito depende apenas de motivação; o HabitChain trata compromisso como infraestrutura de comportamento, onde autoatesto registrado e consequência econômica impulsionam consistência.",
       },
       {
         id: "inv-traction",
-        question: "Que tracao voces tem?",
+        question: "Que tração vocês têm?",
         answer:
-          "Estamos em preparacao ativa de lancamento com produto ja disponivel e captacao de lista. Metricas detalhadas de tracao e cohort sao compartilhadas diretamente com investidores qualificados.",
+          "Estamos em preparação ativa de lançamento com produto já disponível e captação de lista. Métricas detalhadas de tração e cohort são compartilhadas diretamente com investidores qualificados.",
       },
       {
         id: "inv-revenue",
-        question: "Como voces ganham dinheiro (ou planejam ganhar)?",
+        question: "Como vocês ganham dinheiro (ou planejam ganhar)?",
         answer:
-          "O modelo e centrado em monetizacao alinhada a valor por uso da plataforma e economia de campanhas patrocinadas.",
+          "O modelo é centrado em monetização alinhada a valor por uso da plataforma e economia de campanhas patrocinadas.",
       },
       {
         id: "inv-market",
-        question: "Qual e o tamanho de mercado?",
+        question: "Qual é o tamanho de mercado?",
         answer: (
           <ul className="m-0 list-disc pl-5 space-y-1">
             <li>
-              Mercado global de wellness: US$ 6,8T hoje, projetado para US$ 9,8T ate 2029 ({" "}
+              Mercado global de wellness: US$ 6,8T hoje, projetado para US$ 9,8T até 2029 ({" "}
               <a
                 href="https://globalwellnessinstitute.org/global-wellness-institute-blog/2025/11/25/wellness-market-hits-record-6-8-trillion-will-reach-nearly-10-trillion-by-2029/"
                 target="_blank"
@@ -382,7 +382,7 @@ const getInvestorFaqItems = (language: Language): FaqItem[] => {
               ).
             </li>
             <li>
-              Segmento de apps de habit tracker: US$ 1,7B em 2024, CAGR de 14,2% ate US$ 5,5B em 2033 ({" "}
+              Segmento de apps de habit tracker: US$ 1,7B em 2024, CAGR de 14,2% até US$ 5,5B em 2033 ({" "}
               <a
                 href="https://straitsresearch.com/report/habit-tracking-apps-market"
                 target="_blank"
@@ -398,36 +398,36 @@ const getInvestorFaqItems = (language: Language): FaqItem[] => {
       },
       {
         id: "inv-competition",
-        question: "Quem sao os concorrentes e por que voces vencem?",
+        question: "Quem são os concorrentes e por que vocês vencem?",
         answer: (
           <ul className="m-0 list-disc pl-5 space-y-1">
             <li>
-              Habitica (Web2): produtividade gamificada com XP/moedas simbolicas, enquanto o HabitChain usa valor real em risco e
-              resultados on-chain mensuraveis.
+              Habitica (Web2): produtividade gamificada com XP/moedas simbólicas, enquanto o HabitChain usa valor real em risco e
+              resultados on-chain mensuráveis.
             </li>
             <li>
-              Streaks (Web2): rastreamento premium de sequencia focado em checklists pessoais, enquanto o HabitChain adiciona
-              responsabilidade com aposta e consequencia.
+              Streaks (Web2): rastreamento premium de sequência focado em checklists pessoais, enquanto o HabitChain adiciona
+              responsabilidade com aposta e consequência.
             </li>
             <li>
-              Productive (Web2): planejamento de rotina e lembretes, enquanto o HabitChain conecta conclusao a compromisso
+              Productive (Web2): planejamento de rotina e lembretes, enquanto o HabitChain conecta conclusão a compromisso
               financeiro e fluxo transparente de recompensas.
             </li>
             <li>
-              Habitify (Web2): analytics cross-platform de habitos, enquanto o HabitChain adiciona incentivos programaveis
-              (patrocinadores, tesouro, hooks de rendimento) alem do tracking.
+              Habitify (Web2): analytics cross-platform de hábitos, enquanto o HabitChain adiciona incentivos programáveis
+              (patrocinadores, tesouro, hooks de rendimento) além do tracking.
             </li>
             <li>
-              Way of Life (Web2): diario de comportamento, enquanto o HabitChain transforma consistencia em loop de compromisso
-              aplicavel.
+              Way of Life (Web2): diário de comportamento, enquanto o HabitChain transforma consistência em loop de compromisso
+              aplicável.
             </li>
             <li>
-              Strava (Web2): tracking social focado em fitness, enquanto o HabitChain suporta qualquer habito autoatestado e
-              mecanicas de redistribuicao em grupo.
+              Strava (Web2): tracking social focado em fitness, enquanto o HabitChain suporta qualquer hábito autoatestado e
+              mecânicas de redistribuição em grupo.
             </li>
             <li>
-              Resumo: trackers Web2 otimizam lembretes e visualizacao; o HabitChain fecha a lacuna de motivacao com apostas reais,
-              transparencia on-chain e incentivos programaveis.
+              Resumo: trackers Web2 otimizam lembretes e visualização; o HabitChain fecha a lacuna de motivação com apostas reais,
+              transparência on-chain e incentivos programáveis.
             </li>
           </ul>
         ),
@@ -436,43 +436,43 @@ const getInvestorFaqItems = (language: Language): FaqItem[] => {
         id: "inv-why-now",
         question: "Por que agora?",
         answer:
-          "Isso e viavel por UX de carteira melhor, distribuicao por mini app no Farcaster e infraestrutura de baixo custo da Base, tornando mecanicas de compromisso usaveis em produtos do dia a dia.",
+          "Isso é viável por UX de carteira melhor, distribuição por mini app no Farcaster e infraestrutura de baixo custo da Base, tornando mecânicas de compromisso usáveis em produtos do dia a dia.",
       },
       {
         id: "inv-risks",
-        question: "Quais sao os principais riscos / premissas?",
+        question: "Quais são os principais riscos / premissas?",
         answer: (
           <ul className="m-0 list-disc pl-5 space-y-1">
-            <li>Usuarios sustentam comportamento de check-in no longo prazo.</li>
-            <li>Conversao da lista e cohorts de lancamento permanece forte.</li>
-            <li>Demanda de patrocinadores cresce junto com a consistencia dos usuarios.</li>
-            <li>Retencao melhora conforme os loops de produto amadurecem.</li>
+            <li>Usuários sustentam comportamento de check-in no longo prazo.</li>
+            <li>Conversão da lista e cohorts de lançamento permanece forte.</li>
+            <li>Demanda de patrocinadores cresce junto com a consistência dos usuários.</li>
+            <li>Retenção melhora conforme os loops de produto amadurecem.</li>
           </ul>
         ),
       },
       {
         id: "inv-gtm",
-        question: "Qual e o go-to-market?",
+        question: "Qual é o go-to-market?",
         answer:
-          "O GTM combina distribuicao nativa no Farcaster, crescimento via comunidade, campanhas alinhadas a patrocinadores e amplificacao com criadores/parceiros ligada a resultados de responsabilidade.",
+          "O GTM combina distribuição nativa no Farcaster, crescimento via comunidade, campanhas alinhadas a patrocinadores e amplificação com criadores/parceiros ligada a resultados de responsabilidade.",
       },
       {
         id: "inv-team",
-        question: "Por que este time e qualificado de forma unica?",
+        question: "Por que este time é qualificado de forma única?",
         answer:
-          "Marcelo, Gustavo e Henrique - o time fundador soma mais de 20 anos de experiencia em desenvolvimento de software. Ficamos em segundo no StarkNet Hackathon e em primeiro no Polkadot Latin Hackathon. Nosso compromisso com o HabitChain esta totalmente apostado neste projeto.",
+          "Marcelo, Gustavo e Henrique - o time fundador soma mais de 20 anos de experiência em desenvolvimento de software. Ficamos em segundo no StarkNet Hackathon e em primeiro no Polkadot Latin Hackathon. Nosso compromisso com o HabitChain está totalmente apostado neste projeto.",
       },
       {
         id: "inv-raise",
-        question: "O que voces estao captando e o que isso destrava?",
+        question: "O que vocês estão captando e o que isso destrava?",
         answer:
-          "Estamos abertos a conversas com investidores para acelerar profundidade de produto, execucao de go-to-market e expansao de time. Metas especificas de rodada e marcos sao compartilhados em conversas com investidores.",
+          "Estamos abertos a conversas com investidores para acelerar profundidade de produto, execução de go-to-market e expansão de time. Metas específicas de rodada e marcos são compartilhados em conversas com investidores.",
       },
       {
         id: "inv-contact",
         question: "Como investidores podem entrar em contato?",
         answer:
-          "Entre em contato pelo fluxo de lista/contato e canais oficiais, e podemos compartilhar deck e data room como parte da qualificacao de investidor.",
+          "Entre em contato pelo fluxo de lista/contato e canais oficiais, e podemos compartilhar deck e data room como parte da qualificação de investidor.",
       },
     ];
   }
@@ -647,7 +647,7 @@ export function FaqSection({ language = "en", onJoinWaitlist }: FaqSectionProps)
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             {isPt
-              ? "Veja respostas rapidas para perguntas gerais e de investidores."
+              ? "Veja respostas rápidas para perguntas gerais e de investidores."
               : "Browse quick answers for general and investor questions."}
           </p>
         </div>

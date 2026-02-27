@@ -38,25 +38,25 @@ export default function LandingPage() {
         navFeatures: "Recursos",
         launchApp: "Abrir App",
         joinWaitlist: "Entrar na Lista",
-        heroBadge: "Construtor de Habitos Web3",
-        heroTitle: "Aposte em Voce.",
+        heroBadge: "Construtor de Hábitos Web3",
+        heroTitle: "Aposte em Você.",
         heroDescription:
-          "Crie habitos duradouros com risco financeiro real. Assuma seus objetivos, registre seus check-ins on-chain e ganhe recompensas pela sua consistencia.",
+          "Crie hábitos duradouros com risco financeiro real. Assuma seus objetivos, registre seus check-ins on-chain e ganhe recompensas pela sua consistência.",
         startBuilding: "Comece Hoje",
         learnMore: "Saiba Mais",
-        howTitle: "Disciplina em Tres Passos",
+        howTitle: "Disciplina em Três Passos",
         howDescription:
-          "Combinamos a psicologia da aversao a perda com transparencia blockchain para garantir que voce cumpra suas metas.",
+          "Combinamos a psicologia da aversão a perda com transparência blockchain para garantir que você cumpra suas metas.",
         steps: [
           {
             title: "1. Comprometa-se e Aposte",
             description:
-              "Crie um habito e aposte uma pequena quantia. Esse 'skin in the game' gera responsabilidade imediata.",
+              "Crie um hábito e aposte uma pequena quantia. Esse 'skin in the game' gera responsabilidade imediata.",
           },
           {
-            title: "2. Check-in Diario",
+            title: "2. Check-in Diário",
             description:
-              "Registre seu progresso diario. Cada check-in bem-sucedido mantem sua sequencia viva e seu valor protegido.",
+              "Registre seu progresso diário. Cada check-in bem-sucedido mantém sua sequência viva e seu valor protegido.",
           },
           {
             title: "3. Ganhe e Evolua",
@@ -68,25 +68,25 @@ export default function LandingPage() {
         showcaseTitleHighlight: "resultados consistentes.",
         showcaseBullets: [
           "Check-ins autoatestados registrados on-chain",
-          "Mecanica de aversao a perda para aumentar consistencia",
+          "Mecânica de aversão a perda para aumentar consistência",
           "Pools patrocinados com rendimento extra",
-          "Experiencia nativa no Farcaster",
+          "Experiência nativa no Farcaster",
         ],
-        previewHabitName: "Meditacao Matinal",
+        previewHabitName: "Meditação Matinal",
         previewCountdownContext: "janela de check-in",
-        previewCardOneName: "Treino Diario",
-        previewCardTwoName: "Ler 20 Paginas",
+        previewCardOneName: "Treino Diário",
+        previewCardTwoName: "Ler 20 Páginas",
         previewCardTwoTimeLeft: "Pronto",
         ctaTitle: "Pronto para mudar sua vida?",
         ctaDescription:
           "Junte-se a centenas de builders que usam o HabitChain para dominar a disciplina e ganhar recompensas.",
         launchNow: "Abrir o App Agora",
-        footerBuiltOnBase: "Construido na Base.",
+        footerBuiltOnBase: "Construído na Base.",
         footerEmail: "E-mail",
         closeModal: "Fechar",
         modalTitle: "Entrar na Lista",
-        modalDescription: "Seja o primeiro a saber quando lancarmos!",
-        emailAddress: "Endereco de e-mail",
+        modalDescription: "Seja o primeiro a saber quando lançarmos!",
+        emailAddress: "Endereço de e-mail",
         subscribe: "Inscrever-se",
       }
     : {

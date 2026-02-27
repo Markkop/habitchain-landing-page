@@ -46,23 +46,23 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
   return [
     {
       id: "stake",
-      name: isPt ? "Aposta no Habito" : "Habit Stake",
-      title: isPt ? "Aposta no Habito" : "Habit Stake",
+      name: isPt ? "Aposta no Hábito" : "Habit Stake",
+      title: isPt ? "Aposta no Hábito" : "Habit Stake",
       description: isPt
-        ? "Trave fundos nos seus objetivos. Se cumprir, voce mantem o valor e o rendimento; se falhar, vai para o tesouro. Skin in the game gera resultado real."
+        ? "Trave fundos nos seus objetivos. Se cumprir, você mantém o valor e o rendimento; se falhar, vai para o tesouro. Skin in the game gera resultado real."
         : "Lock funds on your goals. Succeed to keep it plus yield, fail and it goes to the treasury. Real skin in the game means real results.",
-      badgeLabel: isPt ? "Mecanica Principal" : "Core Mechanic",
+      badgeLabel: isPt ? "Mecânica Principal" : "Core Mechanic",
       accent: "primary",
       icon: Coins,
       bullets: [
         {
           icon: ShieldCheck,
-          text: isPt ? "Seu dinheiro fica seguro enquanto voce faz check-in" : "Your money is safe as long as you check in",
+          text: isPt ? "Seu dinheiro fica seguro enquanto você faz check-in" : "Your money is safe as long as you check in",
           colorClass: "text-success",
         },
         {
           icon: Trophy,
-          text: isPt ? "Ganhe rendimento enquanto cria habitos" : "Earn yield while you build habits",
+          text: isPt ? "Ganhe rendimento enquanto cria hábitos" : "Earn yield while you build habits",
           colorClass: "text-accent",
         },
       ],
@@ -72,7 +72,7 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
       name: isPt ? "Metas em Squad" : "Squad Goals",
       title: isPt ? "Metas em Squad" : "Squad Goals",
       description: isPt
-        ? "Entre em squads por convite para criar habitos juntos. As apostas sobem: se alguem falhar, a aposta cortada e dividida entre os sobreviventes."
+        ? "Entre em squads por convite para criar hábitos juntos. As apostas sobem: se alguém falhar, a aposta cortada é dividida entre os sobreviventes."
         : "Join invite-only squads to build habits together. The stakes are higher: if a member fails, their slashed stake is split among the survivors.",
       badgeLabel: isPt ? "Em Breve" : "Coming Soon",
       accent: "accent",
@@ -83,7 +83,7 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
       name: isPt ? "Patrocine um Amigo" : "Sponsor a Friend",
       title: isPt ? "Patrocine um Amigo" : "Sponsor a Friend",
       description: isPt
-        ? "Crie codigos de convite para financiar o primeiro habito de um amigo. Voce trava a aposta para ele, e ele so mantem se concluir o ciclo completo."
+        ? "Crie códigos de convite para financiar o primeiro hábito de um amigo. Você trava a aposta para ele, e ele só mantém se concluir o ciclo completo."
         : "Create invite codes that fund a friend's first habit. You lock the stake for them, and they keep it only if they complete the full cycle.",
       badgeLabel: isPt ? "Passe Adiante" : "Pay it Forward",
       accent: "success",
@@ -96,19 +96,19 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
         },
         {
           icon: Zap,
-          text: isPt ? "Se falharem, a aposta patrocinada e cortada" : "If they fail, the sponsored stake is slashed",
+          text: isPt ? "Se falharem, a aposta patrocinada é cortada" : "If they fail, the sponsored stake is slashed",
           colorClass: "text-warning",
         },
       ],
     },
     {
       id: "streak-multiplier",
-      name: isPt ? "Multiplicador de Sequencia" : "Streak Multiplier",
-      title: isPt ? "Multiplicador de Sequencia" : "Streak Multiplier",
+      name: isPt ? "Multiplicador de Sequência" : "Streak Multiplier",
+      title: isPt ? "Multiplicador de Sequência" : "Streak Multiplier",
       description: isPt
-        ? "Transforme consistencia em retorno composto. Cada nivel de sequencia multiplica recompensas de rendimento, aumentando o payout com o tempo."
+        ? "Transforme consistência em retorno composto. Cada nível de sequência multiplica recompensas de rendimento, aumentando o payout com o tempo."
         : "Turn consistency into compounding upside. Every successful streak level multiplies yielding rewards, giving disciplined builders a bigger payout over time.",
-      badgeLabel: isPt ? "Impulso de Consistencia" : "Consistency Boost",
+      badgeLabel: isPt ? "Impulso de Consistência" : "Consistency Boost",
       accent: "accent",
       icon: Flame,
       bullets: [
@@ -119,7 +119,7 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
         },
         {
           icon: Trophy,
-          text: isPt ? "Suba de 1x ate 10x para maximizar rendimento" : "Climb from 1x to 10x to maximize your yield upside",
+          text: isPt ? "Suba de 1x até 10x para maximizar rendimento" : "Climb from 1x to 10x to maximize your yield upside",
           colorClass: "text-success",
         },
       ],
@@ -129,7 +129,7 @@ const getFeatureItems = (language: Language): FeatureItem[] => {
       name: isPt ? "Recompensas de Marcas" : "Brand Rewards",
       title: isPt ? "Recompensas de Marcas" : "Brand Rewards",
       description: isPt
-        ? "Marcas patrocinam habitos para incentivar estilos de vida saudaveis. Ganhe bonus em cripto sobre seu rendimento ao concluir desafios patrocinados."
+        ? "Marcas patrocinam hábitos para incentivar estilos de vida saudáveis. Ganhe bônus em cripto sobre seu rendimento ao concluir desafios patrocinados."
         : "Top brands sponsor habits to encourage healthy lifestyles. Earn bonus crypto rewards on top of your stake yield when you complete sponsored challenges.",
       badgeLabel: isPt ? "Ganhe Mais" : "Earn More",
       accent: "warning",
@@ -332,7 +332,7 @@ export function FeaturesCarouselSection({
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {isPt ? "Recursos que Mantem sua Consistencia" : "Features That Keep You Consistent"}
+            {isPt ? "Recursos que Mantêm sua Consistência" : "Features That Keep You Consistent"}
           </h2>
         </div>
 
@@ -452,7 +452,7 @@ export function FeaturesCarouselSection({
             className="absolute right-3 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-2 border-border/60 bg-background/80 backdrop-blur hover:bg-background"
             onClick={goToNext}
             disabled={!canGoNext}
-            aria-label={isPt ? "Ir para proximo recurso" : "Go to next feature"}
+            aria-label={isPt ? "Ir para próximo recurso" : "Go to next feature"}
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
@@ -531,14 +531,14 @@ function FeatureDemo({
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-success/20">
             <UserPlus className="h-6 w-6 text-success" />
           </div>
-          <CardTitle className="text-success">{isPt ? "Voce foi convidado!" : "You&apos;ve been invited!"}</CardTitle>
+          <CardTitle className="text-success">{isPt ? "Você foi convidado!" : "You&apos;ve been invited!"}</CardTitle>
           <CardDescription>
-            {isPt ? "Marcelo financiou seu primeiro habito" : "Marcelo has funded your first habit"}
+            {isPt ? "Marcelo financiou seu primeiro hábito" : "Marcelo has funded your first habit"}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 text-center">
           <div className="rounded-xl border border-success/20 bg-background/80 p-4 backdrop-blur">
-            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Codigo de Convite" : "Invite Code"}</p>
+            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Código de Convite" : "Invite Code"}</p>
             <p className="font-mono text-2xl font-bold tracking-widest">BUILD-2026</p>
           </div>
           <div className="flex justify-between px-2 text-sm">
@@ -546,7 +546,7 @@ function FeatureDemo({
             <span className="font-bold">$5.00</span>
           </div>
           <Button className="w-full bg-success text-white hover:bg-success/90">
-            {isPt ? "Aceitar e Comecar" : "Accept &amp; Start Building"}
+            {isPt ? "Aceitar e Começar" : "Accept &amp; Start Building"}
           </Button>
         </CardContent>
       </Card>
@@ -569,7 +569,7 @@ function FeatureDemo({
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 text-center">
-            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Sequencia Ativa" : "Live Streak"}</p>
+            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Sequência Ativa" : "Live Streak"}</p>
             <p className="text-3xl font-bold text-accent">6x</p>
             <p className="text-xs text-muted-foreground">
               {isPt ? "Multiplicador aplicado nas recompensas de rendimento" : "Multiplier applied to yielding rewards"}
@@ -577,7 +577,7 @@ function FeatureDemo({
           </div>
           <div className="space-y-2">
             <div className="flex justify-between text-xs">
-              <span>{isPt ? "Progresso ate o Maximo" : "Progress to Max"}</span>
+              <span>{isPt ? "Progresso até o Máximo" : "Progress to Max"}</span>
               <span>6/10</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-secondary">
@@ -608,7 +608,7 @@ function FeatureDemo({
       <CardContent className="space-y-4">
         <div className="flex gap-4 text-sm">
           <div className="flex-1 rounded-lg bg-secondary/50 p-3 text-center">
-            <p className="mb-1 text-xs text-muted-foreground">{isPt ? "Bonus" : "Bonus"}</p>
+            <p className="mb-1 text-xs text-muted-foreground">{isPt ? "Bônus" : "Bonus"}</p>
             <p className="font-bold text-warning">{isPt ? "+10% Rendimento" : "+10% Yield"}</p>
           </div>
           <div className="flex-1 rounded-lg bg-secondary/50 p-3 text-center">

@@ -42,7 +42,7 @@ export function InteractiveHabitDemo({
   const [isInUserView, setIsInUserView] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const isPt = language === "pt-BR";
-  const displayHabitName = habitName ?? (isPt ? "Codigo Diario" : "Daily Coding");
+  const displayHabitName = habitName ?? (isPt ? "Código Diário" : "Daily Coding");
   const displayCountdownContextLabel = countdownContextLabel ?? (isPt ? "janela da demo" : "demo window");
 
   useEffect(() => {
@@ -224,7 +224,7 @@ export function InteractiveHabitDemo({
               </>
             ) : state === "checked" ? (
               isPt
-                ? `Voce recebeu ${rewardStakeLabel} de volta + recompensas extras`
+                ? `Você recebeu ${rewardStakeLabel} de volta + recompensas extras`
                 : `You got your ${rewardStakeLabel} back + extra rewards`
             ) : (
               isPt ? `${stake} apostado` : `${stake} staked`
@@ -283,7 +283,7 @@ export function InteractiveHabitDemo({
             </>
           ) : state === "checked" ? (
             <>
-              <span className="text-success font-medium">{isPt ? "Sequencia preservada" : "Streak preserved"}</span>
+              <span className="text-success font-medium">{isPt ? "Sequência preservada" : "Streak preserved"}</span>
               <span className="text-success">{isPt ? "Check-in feito" : "Checked in"}</span>
             </>
           ) : (
@@ -311,7 +311,7 @@ export function InteractiveHabitDemo({
               className="flex-1 h-11 rounded-xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md hover:shadow-lg transition-all"
             >
               <Flame className="w-4 h-4 mr-1" />
-              {isPt ? "Manter sequencia" : "Keep streak"}
+              {isPt ? "Manter sequência" : "Keep streak"}
             </Button>
             {showJoinWaitlistAction && onJoinWaitlist ? (
               <Button
@@ -364,7 +364,7 @@ function DemoStatusBadge({
   if (state === "checked") {
     return (
       <Badge className="shrink-0 bg-success/20 text-success border-2 border-success/50 font-semibold text-xs h-5">
-        {isPt ? "Concluido" : "Done"}
+        {isPt ? "Concluído" : "Done"}
       </Badge>
     );
   }

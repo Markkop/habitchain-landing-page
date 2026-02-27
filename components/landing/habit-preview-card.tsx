@@ -95,7 +95,7 @@ export function HabitPreviewCard({
           {status === "ready" ? (
             <>
               <Flame className="w-4 h-4 mr-1" />
-              {isPt ? "Continuar sequencia" : "Continue streak"}
+              {isPt ? "Continuar sequência" : "Continue streak"}
             </>
           ) : status === "done" ? (
             isPt ? "Feito" : "Checked"
@@ -123,7 +123,7 @@ function StatusBadge({
         <Badge
           className="shrink-0 bg-success/20 text-success border-2 border-success/50 font-semibold text-xs h-5"
         >
-          {isPt ? "Concluido" : "Done"}
+          {isPt ? "Concluído" : "Done"}
         </Badge>
       );
     case "ready":
