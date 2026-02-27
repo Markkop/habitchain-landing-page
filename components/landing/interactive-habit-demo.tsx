@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { Language } from "@/lib/language";
 import { Flame, RotateCcw, Skull } from "lucide-react";
 import confetti from "canvas-confetti";
 
@@ -15,6 +16,7 @@ const DEFAULT_CHECK_INS = 7;
 interface InteractiveHabitDemoProps {
   className?: string;
   onJoinWaitlist?: () => void;
+  language?: Language;
   habitName?: string;
   stake?: string;
   initialCheckIns?: number;
@@ -26,11 +28,12 @@ interface InteractiveHabitDemoProps {
 export function InteractiveHabitDemo({
   className,
   onJoinWaitlist,
-  habitName = "Daily Coding",
+  language = "en",
+  habitName,
   stake = "$5.00",
   initialCheckIns = DEFAULT_CHECK_INS,
   initialCountdownSeconds = DEFAULT_COUNTDOWN_SECONDS,
-  countdownContextLabel = "demo window",
+  countdownContextLabel,
   showJoinWaitlistAction = true,
 }: InteractiveHabitDemoProps) {
   const [state, setState] = useState<DemoState>("countdown");
@@ -38,6 +41,9 @@ export function InteractiveHabitDemo({
   const [checkInCount, setCheckInCount] = useState(initialCheckIns);
   const [isInUserView, setIsInUserView] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  const isPt = language === "pt-BR";
+  const displayHabitName = habitName ?? (isPt ? "Codigo Diario" : "Daily Coding");
+  const displayCountdownContextLabel = countdownContextLabel ?? (isPt ? "janela da demo" : "demo window");
 
   useEffect(() => {
     const node = cardRef.current;
@@ -188,7 +194,7 @@ export function InteractiveHabitDemo({
                   : "text-foreground"
               )}
             >
-              {habitName}
+              {displayHabitName}
             </h3>
           </div>
           {/* Reset button */}
@@ -198,7 +204,7 @@ export function InteractiveHabitDemo({
               size="icon-xs"
               className="h-7 w-7 rounded-full text-muted-foreground hover:text-foreground"
               onClick={handleReset}
-              title="Reset demo"
+              title={isPt ? "Reiniciar demo" : "Reset demo"}
             >
               <RotateCcw className="h-3.5 w-3.5" />
             </Button>
@@ -214,15 +220,17 @@ export function InteractiveHabitDemo({
             {state === "slashed" ? (
               <>
                 <span className="line-through">{stake}</span>{" "}
-                <span className="text-destructive font-medium">lost</span>
+                <span className="text-destructive font-medium">{isPt ? "perdido" : "lost"}</span>
               </>
             ) : state === "checked" ? (
-              `You got your ${rewardStakeLabel} back + extra rewards`
+              isPt
+                ? `Voce recebeu ${rewardStakeLabel} de volta + recompensas extras`
+                : `You got your ${rewardStakeLabel} back + extra rewards`
             ) : (
-              `${stake} staked`
+              isPt ? `${stake} apostado` : `${stake} staked`
             )}
           </p>
-          <DemoStatusBadge state={state} isUrgent={isUrgent} />
+          <DemoStatusBadge state={state} isUrgent={isUrgent} language={language} />
         </div>
       </div>
 
@@ -254,7 +262,7 @@ export function InteractiveHabitDemo({
             state === "slashed" ? "text-destructive/60" : "text-muted-foreground"
           )}
         >
-          {checkInCount} check-ins
+          {checkInCount} {isPt ? "registros" : "check-ins"}
         </span>
       </div>
 
@@ -269,19 +277,19 @@ export function InteractiveHabitDemo({
                   isUrgent && "text-warning font-semibold animate-pulse"
                 )}
               >
-                {formatTime(secondsLeft)} left
+                {isPt ? `${formatTime(secondsLeft)} restante` : `${formatTime(secondsLeft)} left`}
               </span>
-              <span className="text-muted-foreground/60">{countdownContextLabel}</span>
+              <span className="text-muted-foreground/60">{displayCountdownContextLabel}</span>
             </>
           ) : state === "checked" ? (
             <>
-              <span className="text-success font-medium">Streak preserved</span>
-              <span className="text-success">Checked in</span>
+              <span className="text-success font-medium">{isPt ? "Sequencia preservada" : "Streak preserved"}</span>
+              <span className="text-success">{isPt ? "Check-in feito" : "Checked in"}</span>
             </>
           ) : (
             <>
-              <span className="text-destructive font-medium">Missed window</span>
-              <span className="text-destructive/70">Stake slashed</span>
+              <span className="text-destructive font-medium">{isPt ? "Janela perdida" : "Missed window"}</span>
+              <span className="text-destructive/70">{isPt ? "Aposta cortada" : "Stake slashed"}</span>
             </>
           )}
         </div>
@@ -292,7 +300,7 @@ export function InteractiveHabitDemo({
             onClick={handleCheckIn}
             className="w-full h-11 rounded-xl bg-gradient-to-r from-success to-success/90 hover:from-success/90 hover:to-success text-white shadow-md hover:shadow-lg transition-all"
           >
-            Check in
+            {isPt ? "Fazer check-in" : "Check in"}
           </Button>
         )}
 
@@ -303,7 +311,7 @@ export function InteractiveHabitDemo({
               className="flex-1 h-11 rounded-xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md hover:shadow-lg transition-all"
             >
               <Flame className="w-4 h-4 mr-1" />
-              Keep streak
+              {isPt ? "Manter sequencia" : "Keep streak"}
             </Button>
             {showJoinWaitlistAction && onJoinWaitlist ? (
               <Button
@@ -311,7 +319,7 @@ export function InteractiveHabitDemo({
                 variant="outline"
                 className="flex-1 h-11 rounded-xl border-2 border-border/60 bg-card text-foreground hover:bg-muted/50"
               >
-                Join Waitlist
+                {isPt ? "Entrar na Lista" : "Join Waitlist"}
               </Button>
             ) : null}
           </div>
@@ -325,14 +333,14 @@ export function InteractiveHabitDemo({
               variant="outline"
             >
               <Skull className="w-4 h-4 mr-1" />
-              Slashed
+              {isPt ? "Cortado" : "Slashed"}
             </Button>
             <Button
               onClick={handleReset}
               className="h-11 rounded-xl bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white shadow-md px-4"
             >
               <RotateCcw className="w-4 h-4 mr-1" />
-              Retry
+              {isPt ? "Tentar novamente" : "Retry"}
             </Button>
           </div>
         )}
@@ -345,14 +353,18 @@ export function InteractiveHabitDemo({
 function DemoStatusBadge({
   state,
   isUrgent,
+  language,
 }: {
   state: DemoState;
   isUrgent: boolean;
+  language: Language;
 }) {
+  const isPt = language === "pt-BR";
+
   if (state === "checked") {
     return (
       <Badge className="shrink-0 bg-success/20 text-success border-2 border-success/50 font-semibold text-xs h-5">
-        Done
+        {isPt ? "Concluido" : "Done"}
       </Badge>
     );
   }
@@ -362,7 +374,7 @@ function DemoStatusBadge({
         variant="destructive"
         className="shrink-0 border-2 border-destructive/50 bg-destructive/20 text-xs font-semibold h-5"
       >
-        Slashed
+        {isPt ? "Cortado" : "Slashed"}
       </Badge>
     );
   }
@@ -375,7 +387,7 @@ function DemoStatusBadge({
           : "bg-warning/20 text-warning border-warning/50"
       )}
     >
-      Pending
+      {isPt ? "Pendente" : "Pending"}
     </Badge>
   );
 }

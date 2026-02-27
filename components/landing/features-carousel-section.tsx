@@ -19,6 +19,7 @@ import { InteractiveHabitDemo } from "@/components/landing/interactive-habit-dem
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Language } from "@/lib/language";
 import { cn } from "@/lib/utils";
 
 type FeatureAccent = "primary" | "accent" | "success" | "warning";
@@ -39,94 +40,103 @@ interface FeatureItem {
   }>;
 }
 
-const FEATURE_ITEMS: FeatureItem[] = [
-  {
-    id: "stake",
-    name: "Habit Stake",
-    title: "Habit Stake",
-    description:
-      "Lock funds on your goals. Succeed to keep it plus yield, fail and it goes to the treasury. Real skin in the game means real results.",
-    badgeLabel: "Core Mechanic",
-    accent: "primary",
-    icon: Coins,
-    bullets: [
-      {
-        icon: ShieldCheck,
-        text: "Your money is safe as long as you check in",
-        colorClass: "text-success",
-      },
-      {
-        icon: Trophy,
-        text: "Earn yield while you build habits",
-        colorClass: "text-accent",
-      },
-    ],
-  },
-  {
-    id: "squad-goals",
-    name: "Squad Goals",
-    title: "Squad Goals",
-    description:
-      "Join invite-only squads to build habits together. The stakes are higher: if a member fails, their slashed stake is split among the survivors.",
-    badgeLabel: "Coming Soon",
-    accent: "accent",
-    icon: Users,
-  },
-  {
-    id: "sponsor-friend",
-    name: "Sponsor a Friend",
-    title: "Sponsor a Friend",
-    description:
-      "Create invite codes that fund a friend's first habit. You lock the stake for them, and they keep it only if they complete the full cycle.",
-    badgeLabel: "Pay it Forward",
-    accent: "success",
-    icon: UserPlus,
-    bullets: [
-      {
-        icon: ShieldCheck,
-        text: "Onboard friends without them needing funds",
-        colorClass: "text-success",
-      },
-      {
-        icon: Zap,
-        text: "If they fail, the sponsored stake is slashed",
-        colorClass: "text-warning",
-      },
-    ],
-  },
-  {
-    id: "streak-multiplier",
-    name: "Streak Multiplier",
-    title: "Streak Multiplier",
-    description:
-      "Turn consistency into compounding upside. Every successful streak level multiplies yielding rewards, giving disciplined builders a bigger payout over time.",
-    badgeLabel: "Consistency Boost",
-    accent: "accent",
-    icon: Flame,
-    bullets: [
-      {
-        icon: Zap,
-        text: "Each completed cycle pushes your multiplier higher",
-        colorClass: "text-accent",
-      },
-      {
-        icon: Trophy,
-        text: "Climb from 1x to 10x to maximize your yield upside",
-        colorClass: "text-success",
-      },
-    ],
-  },
-  {
-    id: "brand-rewards",
-    name: "Brand Rewards",
-    title: "Brand Rewards",
-    description:
-      "Top brands sponsor habits to encourage healthy lifestyles. Earn bonus crypto rewards on top of your stake yield when you complete sponsored challenges.",
-    badgeLabel: "Earn More",
-    accent: "warning",
-    icon: Megaphone,
-  },
-];
+const getFeatureItems = (language: Language): FeatureItem[] => {
+  const isPt = language === "pt-BR";
+
+  return [
+    {
+      id: "stake",
+      name: isPt ? "Aposta no Habito" : "Habit Stake",
+      title: isPt ? "Aposta no Habito" : "Habit Stake",
+      description: isPt
+        ? "Trave fundos nos seus objetivos. Se cumprir, voce mantem o valor e o rendimento; se falhar, vai para o tesouro. Skin in the game gera resultado real."
+        : "Lock funds on your goals. Succeed to keep it plus yield, fail and it goes to the treasury. Real skin in the game means real results.",
+      badgeLabel: isPt ? "Mecanica Principal" : "Core Mechanic",
+      accent: "primary",
+      icon: Coins,
+      bullets: [
+        {
+          icon: ShieldCheck,
+          text: isPt ? "Seu dinheiro fica seguro enquanto voce faz check-in" : "Your money is safe as long as you check in",
+          colorClass: "text-success",
+        },
+        {
+          icon: Trophy,
+          text: isPt ? "Ganhe rendimento enquanto cria habitos" : "Earn yield while you build habits",
+          colorClass: "text-accent",
+        },
+      ],
+    },
+    {
+      id: "squad-goals",
+      name: isPt ? "Metas em Squad" : "Squad Goals",
+      title: isPt ? "Metas em Squad" : "Squad Goals",
+      description: isPt
+        ? "Entre em squads por convite para criar habitos juntos. As apostas sobem: se alguem falhar, a aposta cortada e dividida entre os sobreviventes."
+        : "Join invite-only squads to build habits together. The stakes are higher: if a member fails, their slashed stake is split among the survivors.",
+      badgeLabel: isPt ? "Em Breve" : "Coming Soon",
+      accent: "accent",
+      icon: Users,
+    },
+    {
+      id: "sponsor-friend",
+      name: isPt ? "Patrocine um Amigo" : "Sponsor a Friend",
+      title: isPt ? "Patrocine um Amigo" : "Sponsor a Friend",
+      description: isPt
+        ? "Crie codigos de convite para financiar o primeiro habito de um amigo. Voce trava a aposta para ele, e ele so mantem se concluir o ciclo completo."
+        : "Create invite codes that fund a friend's first habit. You lock the stake for them, and they keep it only if they complete the full cycle.",
+      badgeLabel: isPt ? "Passe Adiante" : "Pay it Forward",
+      accent: "success",
+      icon: UserPlus,
+      bullets: [
+        {
+          icon: ShieldCheck,
+          text: isPt ? "Traga amigos sem precisar que eles tenham fundos" : "Onboard friends without them needing funds",
+          colorClass: "text-success",
+        },
+        {
+          icon: Zap,
+          text: isPt ? "Se falharem, a aposta patrocinada e cortada" : "If they fail, the sponsored stake is slashed",
+          colorClass: "text-warning",
+        },
+      ],
+    },
+    {
+      id: "streak-multiplier",
+      name: isPt ? "Multiplicador de Sequencia" : "Streak Multiplier",
+      title: isPt ? "Multiplicador de Sequencia" : "Streak Multiplier",
+      description: isPt
+        ? "Transforme consistencia em retorno composto. Cada nivel de sequencia multiplica recompensas de rendimento, aumentando o payout com o tempo."
+        : "Turn consistency into compounding upside. Every successful streak level multiplies yielding rewards, giving disciplined builders a bigger payout over time.",
+      badgeLabel: isPt ? "Impulso de Consistencia" : "Consistency Boost",
+      accent: "accent",
+      icon: Flame,
+      bullets: [
+        {
+          icon: Zap,
+          text: isPt ? "Cada ciclo completo aumenta seu multiplicador" : "Each completed cycle pushes your multiplier higher",
+          colorClass: "text-accent",
+        },
+        {
+          icon: Trophy,
+          text: isPt ? "Suba de 1x ate 10x para maximizar rendimento" : "Climb from 1x to 10x to maximize your yield upside",
+          colorClass: "text-success",
+        },
+      ],
+    },
+    {
+      id: "brand-rewards",
+      name: isPt ? "Recompensas de Marcas" : "Brand Rewards",
+      title: isPt ? "Recompensas de Marcas" : "Brand Rewards",
+      description: isPt
+        ? "Marcas patrocinam habitos para incentivar estilos de vida saudaveis. Ganhe bonus em cripto sobre seu rendimento ao concluir desafios patrocinados."
+        : "Top brands sponsor habits to encourage healthy lifestyles. Earn bonus crypto rewards on top of your stake yield when you complete sponsored challenges.",
+      badgeLabel: isPt ? "Ganhe Mais" : "Earn More",
+      accent: "warning",
+      icon: Megaphone,
+    },
+  ];
+};
 
 const ACCENT_STYLES: Record<
   FeatureAccent,
@@ -158,7 +168,15 @@ const ACCENT_STYLES: Record<
   },
 };
 
-export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: () => void }) {
+export function FeaturesCarouselSection({
+  language = "en",
+  onJoinWaitlist,
+}: {
+  language?: Language;
+  onJoinWaitlist?: () => void;
+}) {
+  const isPt = language === "pt-BR";
+  const featureItems = getFeatureItems(language);
   const [activeIndex, setActiveIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<Array<HTMLElement | null>>([]);
@@ -268,7 +286,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
   };
 
   const handleTabKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    const lastIndex = FEATURE_ITEMS.length - 1;
+    const lastIndex = featureItems.length - 1;
     let nextIndex = index;
 
     if (event.key === "ArrowRight") {
@@ -291,7 +309,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
     scrollToFeature(nextIndex);
   };
 
-  const lastIndex = FEATURE_ITEMS.length - 1;
+  const lastIndex = featureItems.length - 1;
   const canGoPrevious = activeIndex > 0;
   const canGoNext = activeIndex < lastIndex;
 
@@ -313,17 +331,19 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
     <section id="features" className="scroll-mt-24 px-6 py-12 bg-card/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Features That Keep You Consistent</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            {isPt ? "Recursos que Mantem sua Consistencia" : "Features That Keep You Consistent"}
+          </h2>
         </div>
 
         <div className="mt-10">
           <div
             role="tablist"
-            aria-label="HabitChain feature tabs"
+            aria-label={isPt ? "Abas de recursos do HabitChain" : "HabitChain feature tabs"}
             className="features-tabs flex-1 overflow-x-auto pb-2"
           >
             <div className="flex gap-3">
-              {FEATURE_ITEMS.map((feature, index) => {
+              {featureItems.map((feature, index) => {
                 const isActive = index === activeIndex;
                 const Icon = feature.icon;
 
@@ -362,7 +382,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
             ref={trackRef}
             className="features-carousel-track flex snap-x snap-mandatory gap-0 overflow-x-auto scroll-smooth"
           >
-            {FEATURE_ITEMS.map((feature, index) => {
+            {featureItems.map((feature, index) => {
               const styles = ACCENT_STYLES[feature.accent];
               const Icon = feature.icon;
 
@@ -406,7 +426,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
 
                     <div className="relative order-2 flex w-full min-w-0 min-h-[280px] items-center justify-center md:min-h-[320px]">
                       <div className={cn("absolute inset-0 rounded-full blur-3xl opacity-20", styles.glow)} />
-                      <FeatureDemo featureId={feature.id} onJoinWaitlist={onJoinWaitlist} />
+                      <FeatureDemo featureId={feature.id} language={language} onJoinWaitlist={onJoinWaitlist} />
                     </div>
                   </div>
                 </article>
@@ -421,7 +441,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
             className="absolute left-3 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-2 border-border/60 bg-background/80 backdrop-blur hover:bg-background"
             onClick={goToPrevious}
             disabled={!canGoPrevious}
-            aria-label="Go to previous feature"
+            aria-label={isPt ? "Ir para recurso anterior" : "Go to previous feature"}
           >
             <ChevronLeft className="h-4 w-4" />
           </Button>
@@ -432,7 +452,7 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
             className="absolute right-3 top-1/2 z-10 h-11 w-11 -translate-y-1/2 rounded-full border-2 border-border/60 bg-background/80 backdrop-blur hover:bg-background"
             onClick={goToNext}
             disabled={!canGoNext}
-            aria-label="Go to next feature"
+            aria-label={isPt ? "Ir para proximo recurso" : "Go to next feature"}
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
@@ -442,10 +462,24 @@ export function FeaturesCarouselSection({ onJoinWaitlist }: { onJoinWaitlist?: (
   );
 }
 
-function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJoinWaitlist?: () => void }) {
+function FeatureDemo({
+  featureId,
+  language = "en",
+  onJoinWaitlist,
+}: {
+  featureId: FeatureId;
+  language?: Language;
+  onJoinWaitlist?: () => void;
+}) {
+  const isPt = language === "pt-BR";
+
   if (featureId === "stake") {
     return (
-      <InteractiveHabitDemo className="relative z-10 w-full max-w-sm shadow-2xl" onJoinWaitlist={onJoinWaitlist} />
+      <InteractiveHabitDemo
+        className="relative z-10 w-full max-w-sm shadow-2xl"
+        language={language}
+        onJoinWaitlist={onJoinWaitlist}
+      />
     );
   }
 
@@ -455,12 +489,12 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
         <CardHeader className="pb-2">
           <div className="mb-2 flex items-center justify-between">
             <Badge variant="outline" className="border-accent/20 bg-accent/10 text-accent">
-              Active Squad
+              {isPt ? "Squad Ativo" : "Active Squad"}
             </Badge>
-            <span className="text-xs text-muted-foreground">Members 4/5</span>
+            <span className="text-xs text-muted-foreground">{isPt ? "Membros 4/5" : "Members 4/5"}</span>
           </div>
-          <CardTitle>Morning Runners</CardTitle>
-          <CardDescription>Survivors split the pot</CardDescription>
+          <CardTitle>{isPt ? "Corredores da Manha" : "Morning Runners"}</CardTitle>
+          <CardDescription>{isPt ? "Sobreviventes dividem o pote" : "Survivors split the pot"}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -475,13 +509,13 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
                 <img
                   key={src}
                   src={src}
-                  alt={`Member ${index + 1}`}
+                  alt={isPt ? `Membro ${index + 1}` : `Member ${index + 1}`}
                   className="inline-block h-10 w-10 rounded-full bg-muted object-cover ring-2 ring-background"
                 />
               ))}
             </div>
             <div className="flex items-center justify-between rounded-lg bg-secondary/50 p-3">
-              <span className="text-sm font-medium">Current Pot</span>
+              <span className="text-sm font-medium">{isPt ? "Pote Atual" : "Current Pot"}</span>
               <span className="text-lg font-bold text-success">$45.00</span>
             </div>
           </div>
@@ -497,19 +531,23 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-success/20">
             <UserPlus className="h-6 w-6 text-success" />
           </div>
-          <CardTitle className="text-success">You&apos;ve been invited!</CardTitle>
-          <CardDescription>Marcelo has funded your first habit</CardDescription>
+          <CardTitle className="text-success">{isPt ? "Voce foi convidado!" : "You&apos;ve been invited!"}</CardTitle>
+          <CardDescription>
+            {isPt ? "Marcelo financiou seu primeiro habito" : "Marcelo has funded your first habit"}
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4 text-center">
           <div className="rounded-xl border border-success/20 bg-background/80 p-4 backdrop-blur">
-            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">Invite Code</p>
+            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Codigo de Convite" : "Invite Code"}</p>
             <p className="font-mono text-2xl font-bold tracking-widest">BUILD-2026</p>
           </div>
           <div className="flex justify-between px-2 text-sm">
-            <span className="text-muted-foreground">Sponsored Stake:</span>
+            <span className="text-muted-foreground">{isPt ? "Aposta Patrocinada:" : "Sponsored Stake:"}</span>
             <span className="font-bold">$5.00</span>
           </div>
-          <Button className="w-full bg-success text-white hover:bg-success/90">Accept &amp; Start Building</Button>
+          <Button className="w-full bg-success text-white hover:bg-success/90">
+            {isPt ? "Aceitar e Comecar" : "Accept &amp; Start Building"}
+          </Button>
         </CardContent>
       </Card>
     );
@@ -521,8 +559,8 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
         <CardHeader className="pb-2">
           <div className="flex items-start justify-between">
             <div>
-              <CardTitle>Current Multiplier</CardTitle>
-              <CardDescription>Yielding rewards boost</CardDescription>
+              <CardTitle>{isPt ? "Multiplicador Atual" : "Current Multiplier"}</CardTitle>
+              <CardDescription>{isPt ? "Impulso nas recompensas de rendimento" : "Yielding rewards boost"}</CardDescription>
             </div>
             <div className="rounded-lg bg-accent/20 p-2 text-accent">
               <Flame className="h-5 w-5" />
@@ -531,13 +569,15 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="rounded-xl border border-accent/20 bg-accent/5 p-4 text-center">
-            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">Live Streak</p>
+            <p className="mb-1 text-xs uppercase tracking-wider text-muted-foreground">{isPt ? "Sequencia Ativa" : "Live Streak"}</p>
             <p className="text-3xl font-bold text-accent">6x</p>
-            <p className="text-xs text-muted-foreground">Multiplier applied to yielding rewards</p>
+            <p className="text-xs text-muted-foreground">
+              {isPt ? "Multiplicador aplicado nas recompensas de rendimento" : "Multiplier applied to yielding rewards"}
+            </p>
           </div>
           <div className="space-y-2">
             <div className="flex justify-between text-xs">
-              <span>Progress to Max</span>
+              <span>{isPt ? "Progresso ate o Maximo" : "Progress to Max"}</span>
               <span>6/10</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-secondary">
@@ -545,7 +585,7 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
             </div>
           </div>
           <p className="text-sm text-muted-foreground">
-            Keep checking in to climb toward the full 10x multiplier.
+            {isPt ? "Continue fazendo check-in para chegar ao multiplicador total de 10x." : "Keep checking in to climb toward the full 10x multiplier."}
           </p>
         </CardContent>
       </Card>
@@ -557,8 +597,8 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between">
           <div>
-            <CardTitle>Base Buildathon</CardTitle>
-            <CardDescription>Sponsored Challenge</CardDescription>
+            <CardTitle>{isPt ? "Buildathon da Base" : "Base Buildathon"}</CardTitle>
+            <CardDescription>{isPt ? "Desafio Patrocinado" : "Sponsored Challenge"}</CardDescription>
           </div>
           <div className="rounded-lg bg-blue-600 p-2 text-white">
             <Zap className="h-5 w-5" />
@@ -568,18 +608,18 @@ function FeatureDemo({ featureId, onJoinWaitlist }: { featureId: FeatureId; onJo
       <CardContent className="space-y-4">
         <div className="flex gap-4 text-sm">
           <div className="flex-1 rounded-lg bg-secondary/50 p-3 text-center">
-            <p className="mb-1 text-xs text-muted-foreground">Bonus</p>
-            <p className="font-bold text-warning">+10% Yield</p>
+            <p className="mb-1 text-xs text-muted-foreground">{isPt ? "Bonus" : "Bonus"}</p>
+            <p className="font-bold text-warning">{isPt ? "+10% Rendimento" : "+10% Yield"}</p>
           </div>
           <div className="flex-1 rounded-lg bg-secondary/50 p-3 text-center">
-            <p className="mb-1 text-xs text-muted-foreground">Slots</p>
+            <p className="mb-1 text-xs text-muted-foreground">{isPt ? "Vagas" : "Slots"}</p>
             <p className="font-bold">450/500</p>
           </div>
         </div>
         <div className="space-y-2">
           <div className="flex justify-between text-xs">
-            <span>Progress</span>
-            <span>28/30 Days</span>
+            <span>{isPt ? "Progresso" : "Progress"}</span>
+            <span>{isPt ? "28/30 Dias" : "28/30 Days"}</span>
           </div>
           <div className="h-2 overflow-hidden rounded-full bg-secondary">
             <div className="h-full w-[93%] rounded-full bg-warning" />

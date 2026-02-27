@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { Language } from "@/lib/language";
 import { Flame, RotateCw } from "lucide-react";
 
 interface HabitPreviewCardProps {
@@ -12,6 +13,7 @@ interface HabitPreviewCardProps {
   timeLeft: string;
   status: "done" | "pending" | "ready";
   className?: string;
+  language?: Language;
 }
 
 export function HabitPreviewCard({
@@ -21,7 +23,10 @@ export function HabitPreviewCard({
   timeLeft,
   status,
   className,
+  language = "en",
 }: HabitPreviewCardProps) {
+  const isPt = language === "pt-BR";
+
   return (
     <div
       className={cn(
@@ -47,10 +52,10 @@ export function HabitPreviewCard({
         </div>
         <div className="flex items-center justify-between mt-1">
           <p className="text-sm text-muted-foreground">
-            {stake} staked
+            {isPt ? `${stake} apostado` : `${stake} staked`}
           </p>
           <div className="flex items-center gap-2">
-            <StatusBadge status={status} />
+            <StatusBadge status={status} language={language} />
           </div>
         </div>
       </div>
@@ -66,14 +71,14 @@ export function HabitPreviewCard({
           />
         </div>
         <span className="text-xs text-muted-foreground font-medium">
-          {checkIns} check-ins
+          {checkIns} {isPt ? "registros" : "check-ins"}
         </span>
       </div>
 
       <div className="space-y-2">
         <div className="flex items-center justify-between text-xs text-muted-foreground">
-          <span>{timeLeft} left</span>
-          {status === "done" && <span>Checked in</span>}
+          <span>{isPt ? `${timeLeft} restante` : `${timeLeft} left`}</span>
+          {status === "done" && <span>{isPt ? "Check-in feito" : "Checked in"}</span>}
         </div>
 
         <Button
@@ -90,12 +95,12 @@ export function HabitPreviewCard({
           {status === "ready" ? (
             <>
               <Flame className="w-4 h-4 mr-1" />
-              Continue streak
+              {isPt ? "Continuar sequencia" : "Continue streak"}
             </>
           ) : status === "done" ? (
-            "Checked"
+            isPt ? "Feito" : "Checked"
           ) : (
-            "Check in"
+            isPt ? "Fazer check-in" : "Check in"
           )}
         </Button>
       </div>
@@ -103,14 +108,22 @@ export function HabitPreviewCard({
   );
 }
 
-function StatusBadge({ status }: { status: "done" | "pending" | "ready" }) {
+function StatusBadge({
+  status,
+  language,
+}: {
+  status: "done" | "pending" | "ready";
+  language: Language;
+}) {
+  const isPt = language === "pt-BR";
+
   switch (status) {
     case "done":
       return (
         <Badge
           className="shrink-0 bg-success/20 text-success border-2 border-success/50 font-semibold text-xs h-5"
         >
-          Done
+          {isPt ? "Concluido" : "Done"}
         </Badge>
       );
     case "ready":
@@ -118,7 +131,7 @@ function StatusBadge({ status }: { status: "done" | "pending" | "ready" }) {
         <Badge
           className="shrink-0 bg-primary/20 text-primary border-2 border-primary/50 font-semibold text-xs h-5"
         >
-          Ready
+          {isPt ? "Pronto" : "Ready"}
         </Badge>
       );
     case "pending":
@@ -126,7 +139,7 @@ function StatusBadge({ status }: { status: "done" | "pending" | "ready" }) {
         <Badge
           className="shrink-0 bg-warning/20 text-warning border-2 border-warning/50 font-semibold text-xs h-5"
         >
-          Pending
+          {isPt ? "Pendente" : "Pending"}
         </Badge>
       );
   }
